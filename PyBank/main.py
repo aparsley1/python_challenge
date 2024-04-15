@@ -42,10 +42,11 @@ greatest_decrease = min(profit_changes)
 greatest_decrease_month = total_months[profit_changes.index(greatest_decrease) + 1]
 
 #print results
-print("Financial Analysis")
-print("-------------------------")
-print(f"Total Months: {len(total_months)}")
-print(f"Total Profit/Losses: ${total_profits_sum}")
-print(f"Average Change: ${average_change: .2f}")
-print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})")
-print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})")
+with open("results.txt", "a") as f:
+    print("Financial Analysis", file = f)
+    print("-------------------------", file = f)
+    print(f"Total Months: {len(total_months)}", file = f)
+    print(f"Total Profit/Losses: ${total_profits_sum}", file = f)
+    print(f"Average Change: ${average_change: .2f}", file = f)
+    print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})", file = f)
+    print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})", file = f)
