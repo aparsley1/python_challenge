@@ -49,5 +49,3 @@ print(f"Total Profit/Losses: ${total_profits_sum}")
 print(f"Average Change: ${average_change: .2f}")
 print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})")
 print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})")
-
-
