@@ -46,7 +46,6 @@ for candidate, votes, percentage in results:
         winner = candidate
 
 #print results
-with open("election_results.txt", "a") as file:
     print("Election Results")
     print("-" * 50)
     print(f"Total Votes : {total_votes}")
@@ -58,4 +57,17 @@ for candidate, votes, percentage in results:
 print("-" * 50)
 print(f"Winner: {winner}")
 print("-" * 50)
+
+#write results to text file
+with open ("election_results.txt", "w") as file:
+    file.write("Election Results\n")
+    file.write("-" * 50 + "\n")
+    file.write(f"Total Votes : {total_votes}\n")
+    file.write("-" * 50 + "\n")
+    for candidate, votes, percentage in results:
+        file.write(f"{candidate}: {percentage: .3f}% ({votes})\n")
+
+    file.write("-" * 50 + "\n")
+    file.write(f"Winner: {winner}\n")
+    file.write("-" * 50 + "\n")
 
