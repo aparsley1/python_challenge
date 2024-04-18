@@ -8,7 +8,7 @@ csvfile = os.path.join("C:/Users/Abbi/Desktop/election_data.csv")
 total_votes = 0
 candidates = {}
 winner = []
-max_votes = []
+max_votes = 0
 
 #read data
 with open(csvfile, "r") as file: 
@@ -24,7 +24,7 @@ with open(csvfile, "r") as file:
         #get candidate name from row
         can_name = row[2]
 
-        #check if candidates name is aldready in dict
+        #check if candidates name is present
         if can_name in candidates:
            candidates[can_name] += 1
 
@@ -40,7 +40,22 @@ for candidate, votes in candidates.items():
     results.append((candidate, votes, percentage))
 
 #find the winner
-for candidates, votes, percentage in results:
+for candidate, votes, percentage in results:
     if votes > max_votes:
         max_votes = votes
         winner = candidate
+
+#print results
+with open("election_results.txt", "a") as file:
+    print("Election Results")
+    print("-" * 50)
+    print(f"Total Votes : {total_votes}")
+    print("-" * 50)
+for candidate, votes, percentage in results:
+    #print each candidate results on a new line 
+    print(f"{candidate}: {percentage: .3f}% ({votes})\n")
+   
+print("-" * 50)
+print(f"Winner: {winner}")
+print("-" * 50)
+
