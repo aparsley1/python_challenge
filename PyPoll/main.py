@@ -31,8 +31,16 @@ with open(csvfile, "r") as file:
         else:
             candidates[can_name] = 1
 
+#set new vairable
+results = []
 
-       
+#go through candidates and calculate percenatge of votes
+for candidate, votes in candidates.items():
+    percentage = (votes / total_votes) * 100
+    results.append((candidate, votes, percentage))
 
-
-       
+#find the winner
+for candidates, votes, percentage in results:
+    if votes > max_votes:
+        max_votes = votes
+        winner = candidate
